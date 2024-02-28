@@ -15,9 +15,9 @@ function App() {
          <Menu/>
            <Routes>
            <Route path="/" element={<Inicio/>}/>
-              <Route path="/administrador" element={<Administrador/>}/>
-              <Route path="/detallereceta" element={<DetalleReceta/>}/>
-              <Route path="/administrador/crear" element={<FormularioRecetas/>}/>
+              <Route exact path="/administrador" element={<Administrador/>}/>
+              <Route exact path="/detallereceta" element={<DetalleReceta/>}/>
+              <Route exact path="/administrador/crear" element={<FormularioRecetas/>}/>
               <Route path="*" element={<Error404/>}/>
            </Routes> 
          <Footer/>
