@@ -2,7 +2,7 @@
     "recetas":[
         {
             "id": "1",
-            "nombreProducto": "Brownie de Chocolate",
+            "nombreReceta": "Brownie de Chocolate",
             "cantidad": 6,
             "imagen": "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg",
             "categoria": "Dulce",
@@ -11,7 +11,7 @@
         },
         {
             "id": "2",
-            "nombreProducto": "Torta de Cumpleaños",
+            "nombreReceta": "Torta de Cumpleaños",
             "cantidad": 1,
             "imagen": "https://images.pexels.com/photos/1998632/pexels-photo-1998632.jpeg",
             "categoria": "Budines",

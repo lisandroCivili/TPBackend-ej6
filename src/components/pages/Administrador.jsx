@@ -1,10 +1,32 @@
 import { Button, Table } from "react-bootstrap";
 import ItemReceta from "./recetas/ItemReceta";
 import { Link } from 'react-router-dom';
+import { leerRecetas } from "../../helpers/queries";
+import { useEffect, useState } from "react";
 
 
 const Administrador = () => {
 
+  const [recetas, setRecetas] = useState([]);
+
+    useEffect(()=>{
+
+      obtenerRecetas()
+
+    },[])
+
+  const obtenerRecetas = async()=>{
+
+    const respuesta = await leerRecetas();
+    if (respuesta.status === 200) {
+        const datos = await respuesta.json();
+        console.log(datos)
+        setRecetas(datos);
+    }else{
+      console.log("no funciona")
+    }
+
+  }
 
   return (
     <section className="container mainSection">
@@ -20,15 +42,16 @@ const Administrador = () => {
           <tr className="text-center">
             <th>Cod</th>
             <th>Producto</th>
-            <th>Precio</th>
+            <th>Cantidad</th>
             <th>URL de Imagen</th>
             <th>Categoria</th>
             <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
-            <ItemReceta/>
-            <ItemReceta/>
+            {
+              recetas.map((receta)=><ItemReceta key={receta.id} receta={receta}/>)
+            }
         </tbody>
       </Table>
     </section>
