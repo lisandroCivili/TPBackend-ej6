@@ -70,7 +70,7 @@ const FormularioRecetas = () => {
             type="text"
             placeholder="Ej: https://images.pexels.com/photos/3090274/pexels-photo-3090274.jpeg"
             {...register("imagen",{
-              required: "La url de al imagen es oblogatoria.",
+              required: "La url de al imagen es obligatoria.",
               pattern: {
                 value: /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)$/,
                 message: "Debe ingresar una URL válida, con una imagen en formato jpg, jpeg, gif o png."

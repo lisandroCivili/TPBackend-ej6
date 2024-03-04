@@ -5,6 +5,7 @@ import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer"; 
 import Inicio from "./components/pages/Inicio"
 import DetalleReceta from "./components/pages/DetalleReceta"
+import Login from "./components/pages/Login"
 import Administrador from "./components/pages/Administrador"
 import Error404 from "./components/pages/Error404"
 import FormularioRecetas from "./components/pages/recetas/FormularioRecetas"
