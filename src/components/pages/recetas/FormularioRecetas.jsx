@@ -1,5 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearReceta } from "../../../helpers/queries";
 
 const FormularioRecetas = () => {
   const {
@@ -9,7 +10,9 @@ const FormularioRecetas = () => {
   } = useForm();
 
   const datosValidados = (receta) => {
-    console.log(receta);
+    console.log(receta)
+    crearReceta(receta)
+
   };
 
   return (

@@ -17,6 +17,7 @@ function App() {
            <Route path="/" element={<Inicio/>}/>
               <Route exact path="/administrador" element={<Administrador/>}/>
               <Route exact path="/detallereceta" element={<DetalleReceta/>}/>
+              <Route exact path="/login" element={<Login/>}/>
               <Route exact path="/administrador/crear" element={<FormularioRecetas/>}/>
               <Route path="*" element={<Error404/>}/>
            </Routes> 
