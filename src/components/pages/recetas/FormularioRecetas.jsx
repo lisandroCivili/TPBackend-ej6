@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearReceta } from "../../../helpers/queries";
@@ -7,11 +8,26 @@ const FormularioRecetas = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
-  const datosValidados = (receta) => {
-    console.log(receta)
-    crearReceta(receta)
+  const datosValidados = async(receta) => {
+
+    const respuesta = await crearReceta(receta)
+    if (respuesta.status === 201) {
+      Swal.fire({
+        title: "Producto creado",
+        text: `Se creo la receta de: ${receta.nombreReceta}`,
+        icon: "success"
+      });
+      reset()
+    }else{
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: "No se puedo crear la receta, intente nuevamente en unos minutos.",
+        icon: "error"
+      });
+    }
 
   };
 
