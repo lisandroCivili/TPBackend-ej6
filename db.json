@@ -26,6 +26,15 @@
       "descripcion_breve": "Cupcakes de vainilla.",
       "descripcion_amplia": "Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes Cupcakes ",
       "id": "e079"
+    },
+    {
+      "nombreReceta": "Empanadas de Pollo",
+      "cantidad": "24",
+      "imagen": "https://images.pexels.com/photos/230125/pexels-photo-230125.jpeg",
+      "categoria": "Cena",
+      "descripcion_breve": "Empandas tucumanas de pollo.",
+      "descripcion_amplia": "Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo Empanadas de Pollo ",
+      "id": "ac91"
     }
   ]
 }
