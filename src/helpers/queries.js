@@ -34,3 +34,12 @@ export const borrarReceta = async(id) =>{
         console.log(error)
     }
 }
+
+export const obtenerReceta = async(id) =>{
+    try {
+        const respuesta = await fetch(APIRecetas+'/'+id)
+        return respuesta
+    } catch (error) {
+        console.log(error)
+    }
+}

@@ -1,7 +1,10 @@
 import Swal from 'sweetalert2'
 import { Form, Button } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { crearReceta } from "../../../helpers/queries";
+import { useForm} from "react-hook-form";
+import { crearReceta, obtenerReceta } from "../../../helpers/queries";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 const FormularioRecetas = ({editando, titulo}) => {
   const {
@@ -9,7 +12,29 @@ const FormularioRecetas = ({editando, titulo}) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
+
+  const {id} = useParams()
+
+  useEffect(()=>{
+    if (editando) {
+      cargarDatosReceta()
+    }
+  }, [])
+
+  const cargarDatosReceta = async() =>{ 
+    const respuesta = await obtenerReceta(id);
+    if (respuesta.status === 200) {
+      const datos = await respuesta.json()
+      setValue('nombreReceta', datos.nombreReceta)
+      setValue('nombreReceta', datos.nombreReceta)
+      console.log(datos)
+    }else{
+      console.log("no se obtuvieron datos")
+    }
+  }
+
 
   const datosValidados = async(receta) => {
     if (editando) {
