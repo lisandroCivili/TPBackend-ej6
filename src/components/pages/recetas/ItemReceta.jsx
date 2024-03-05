@@ -1,8 +1,47 @@
+import Swal from 'sweetalert2'
 import { Button } from "react-bootstrap";
+import { borrarReceta, leerRecetas } from '../../../helpers/queries';
 
-const ItemReceta = ({receta}) => {
+
+const ItemReceta = ({receta, setRecetas}) => {
+
+  const eliminarReceta = () =>{
+    Swal.fire({
+      title: "¿Seguro desea eliminar la receta?",
+      text: "¡No se puede revertir esta operación!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar",
+      cancelButtonText: "Cancelar"
+    }).then(async(result) => {
+      if (result.isConfirmed) {
+        const respuesta = await borrarReceta(receta.id)
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: "Receta eliminada",
+            text: `La receta ${receta.nombreReceta} fue eliminada.`,
+            icon: "success"
+          });
+          const productosActualizadosRespuesta = await leerRecetas()
+          if (productosActualizadosRespuesta.status === 200) {
+            const productosActualizados = await productosActualizadosRespuesta.json()
+            setRecetas(productosActualizados)
+          }
+        }else{
+          Swal.fire({
+            title: "Ocurrio un error",
+            text: `No se pudo eliminar la receta, intente nuevamente en unos minutos.`,
+            icon: "error"
+          });
+        }
+      }
+    });
+  }
+
+
     return (
-
         <tr>
         <td className="text-center">{receta.id}</td>
         <td>{receta.nombreReceta}</td>
@@ -19,7 +58,7 @@ const ItemReceta = ({receta}) => {
           <Button variant="warning" className="me-lg-2">
             <i className="bi bi-pencil-square"></i>
           </Button>
-          <Button variant="danger">
+          <Button variant="danger" onClick={eliminarReceta}>
             <i className="bi bi-trash"></i>
           </Button>
         </td>
