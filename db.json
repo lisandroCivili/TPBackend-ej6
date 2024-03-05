@@ -8,6 +8,15 @@
       "categoria": "Cena",
       "descripcion_breve": "Hamburguesa con cheddar y papas fritas.",
       "descripcion_amplia": "Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger Burger "
+    },
+    {
+      "id": "9c8c",
+      "nombreReceta": "Ravioles",
+      "cantidad": "1",
+      "imagen": "https://images.pexels.com/photos/8601683/pexels-photo-8601683.jpeg",
+      "categoria": "Almuerzo",
+      "descripcion_breve": "Ravioles con salsa blanca.",
+      "descripcion_amplia": "Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles "
     }
   ]
 }

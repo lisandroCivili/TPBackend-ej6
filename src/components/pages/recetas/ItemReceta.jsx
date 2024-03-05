@@ -1,6 +1,8 @@
 import Swal from 'sweetalert2'
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { borrarReceta, leerRecetas } from '../../../helpers/queries';
+
 
 
 const ItemReceta = ({receta, setRecetas}) => {
@@ -55,9 +57,9 @@ const ItemReceta = ({receta, setRecetas}) => {
         </td>
         <td>{receta.categoria}</td>
         <td className="text-center">
-          <Button variant="warning" className="me-lg-2">
+          <Link className="me-lg-2 btn btn-warning" to={'/administrador/editar/'+receta.id}>
             <i className="bi bi-pencil-square"></i>
-          </Button>
+          </Link>
           <Button variant="danger" onClick={eliminarReceta}>
             <i className="bi bi-trash"></i>
           </Button>
