@@ -8,6 +8,7 @@ export const leerRecetas = async() =>{
         console.log(error)
     }
 }
+
 export const crearReceta = async(nuevaReceta) =>{
     try {
         const respuesta = await fetch(APIRecetas, {
@@ -17,7 +18,17 @@ export const crearReceta = async(nuevaReceta) =>{
             },
             body: JSON.stringify(nuevaReceta)
         });
-        console.log(respuesta)
+        return respuesta
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const borrarReceta = async(id) =>{
+    try {
+        const respuesta = await fetch(APIRecetas+'/'+id, {
+            method: "DELETE",
+        });
         return respuesta
     } catch (error) {
         console.log(error)

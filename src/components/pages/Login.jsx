@@ -9,7 +9,6 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (datos)=>{
-    console.log(datos);
   }
 
   return (
