@@ -39,7 +39,7 @@ const Inicio = () =>{
         
               <Row>
                 {
-                  recetas.map((receta)=><CardReceta key={receta.id} receta={receta}/>)
+                  recetas.map((receta)=><CardReceta key={receta._id} receta={receta}/>)
                 }
               </Row>
            

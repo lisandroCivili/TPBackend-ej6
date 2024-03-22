@@ -1,6 +1,27 @@
 import { Container, Card, Row, Col } from "react-bootstrap";
-
+import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+import { obtenerReceta } from "../../helpers/queries";
 const DetalleReceta = () => {
+
+    const {id} = useParams()
+    
+
+    const [recetas, setRecetas] = useState({});
+
+    useEffect(()=>{
+        obtenerDetalleReceta()
+    },[])
+
+    const obtenerDetalleReceta = async()=>{
+        const respuesta = await obtenerReceta(id)
+        if (respuesta.status === 200) {
+            const datos = await respuesta.json();
+            setRecetas(datos)
+        }else{
+          console.log("no funciona")
+        }
+    }
     return (
         <Container className="my-3 mainSection">
             <Card>
@@ -8,20 +29,19 @@ const DetalleReceta = () => {
                     <Col md={6}>
                         <Card.Img
                         variant="top"
-                        src="https://images.pexels.com/photos/414555/pexels-photo-414555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        src={recetas.imagen}
                         />
                     </Col>
                     <Col md={6}>
                         <Card.Body>
-                        <Card.Title className="primary-font">Capuchino</Card.Title>
+                        <Card.Title className="primary-font">{recetas.nombreReceta}</Card.Title>
                         <hr />
                         <Card.Text>
-                        El café americano es una bebida caliente que consiste en un espresso diluido con agua caliente, lo que resulta en una taza de café suave y aromático. Es una opción popular para aquellos que prefieren un café menos intenso que el espresso tradicional. Perfecto para disfrutar en cualquier momento del día.
+                        {recetas.descripcion_amplia}
                         <br/>
-                        <br/>
-                        <span className="primary-font fw-semibold ">Categoria:</span> Infusiones
+                        <span className="primary-font fw-semibold ">Categoria:</span> {recetas.categoria}
                         <br className='mb-3'/>
-                        <span className="primary-font fw-semibold ">Precio: $1000</span></Card.Text>
+                        <span className="primary-font fw-semibold ">Cantidad: {recetas.cantidad}</span></Card.Text>
                         </Card.Body>
                     </Col>
                 </Row>
