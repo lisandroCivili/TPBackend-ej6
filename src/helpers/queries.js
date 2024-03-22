@@ -59,3 +59,16 @@ export const editarReceta = async(nuevosDatosReceta, id) =>{
     }
 }
 
+const userAdmin = {
+    email:"admin@lisandrocivili.com",
+    password: "123Aa$123"
+}
+
+export const login = (usuario)=>{
+    if (usuario.mail === userAdmin.email && usuario.pass === userAdmin.password) {
+        sessionStorage.setItem('loginRC', JSON.stringify(usuario.mail))
+        return true
+    }else{
+        return false
+    }
+}
