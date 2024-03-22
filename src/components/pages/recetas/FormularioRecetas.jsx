@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 import { Form, Button } from "react-bootstrap";
 import { useForm} from "react-hook-form";
-import { crearReceta, obtenerReceta } from "../../../helpers/queries";
+import { crearReceta, editarReceta, obtenerReceta } from "../../../helpers/queries";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -28,8 +28,11 @@ const FormularioRecetas = ({editando, titulo}) => {
     if (respuesta.status === 200) {
       const datos = await respuesta.json()
       setValue('nombreReceta', datos.nombreReceta)
-      setValue('nombreReceta', datos.nombreReceta)
-      console.log(datos)
+      setValue('cantidad', datos.cantidad)
+      setValue('imagen', datos.imagen)
+      setValue('categoria', datos.categoria)
+      setValue('descripcion_breve', datos.descripcion_breve)
+      setValue('descripcion_amplia', datos.descripcion_amplia)
     }else{
       console.log("no se obtuvieron datos")
     }
@@ -38,7 +41,20 @@ const FormularioRecetas = ({editando, titulo}) => {
 
   const datosValidados = async(receta) => {
     if (editando) {
-      console.log("editando loko")
+      const respuesta = await editarReceta(receta, id)
+      if (respuesta.status === 200) {
+        Swal.fire({
+          title: "Edicion confirmada",
+          text: `Receta de ${receta.nombreReceta} editada con exito.`,
+          icon: "success"
+        });
+      }else{
+        Swal.fire({
+          title: "No se pudo editar.",
+          text: "Por favor intentalo nuevamente en unos minutos.",
+          icon: "error"
+        });
+      }
     }else{
 
       const respuesta = await crearReceta(receta)
