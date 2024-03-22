@@ -10,13 +10,13 @@
       "id": "f0a2"
     },
     {
-      "id": "9c8c",
-      "nombreReceta": "Ravioles",
+      "nombreReceta": "Ravioles de ricota",
       "cantidad": "1",
       "imagen": "https://images.pexels.com/photos/8601683/pexels-photo-8601683.jpeg",
       "categoria": "Almuerzo",
       "descripcion_breve": "Ravioles con salsa blanca.",
-      "descripcion_amplia": "Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles "
+      "descripcion_amplia": "Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles Ravioles ",
+      "id": "9c8c"
     },
     {
       "nombreReceta": "Cupcakes de Vainilla",
