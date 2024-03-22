@@ -1,8 +1,14 @@
 import { Navbar, Nav, Container} from "react-bootstrap";
-import {NavLink, Link} from "react-router-dom";
+import {NavLink, Link, useNavigate} from "react-router-dom";
 import logo from "../../assets/logochef.png";
 
-const Menu = () => {
+const Menu = ({ usuarioLogeado, setUsuarioLogeado }) => {
+  const navegacion = useNavigate();
+  const logout = () => {
+    sessionStorage.removeItem("loginRC");
+    setUsuarioLogeado("");
+    navegacion("/");
+  };
     return (
       <Navbar expand="lg" className="bg-body-secondary">
         <Container>
@@ -18,9 +24,21 @@ const Menu = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <NavLink end className='nav-link' to='/'>Inicio</NavLink>
-              <NavLink end className='nav-link' to='/administrador'>Administrador</NavLink>
               <NavLink end className='nav-link'to='/registro'>Registro</NavLink>
-              <NavLink end className='nav-link'to='/login'>Login</NavLink>
+              {usuarioLogeado !== "" ? (
+              <>
+                <NavLink end className="nav-link" to="/administrador">
+                  Administrador
+                </NavLink>
+                <Button variant="link" className="nav-link" onClick={logout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <NavLink end className="nav-link" to="/login">
+                Login
+              </NavLink>
+            )}
             </Nav>
           </Navbar.Collapse>
         </Container>
