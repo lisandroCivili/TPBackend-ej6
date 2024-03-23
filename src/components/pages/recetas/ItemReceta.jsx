@@ -19,7 +19,7 @@ const ItemReceta = ({receta, setRecetas}) => {
       cancelButtonText: "Cancelar"
     }).then(async(result) => {
       if (result.isConfirmed) {
-        const respuesta = await borrarReceta(receta.id)
+        const respuesta = await borrarReceta(receta._id)
         if (respuesta.status === 200) {
           Swal.fire({
             title: "Receta eliminada",
@@ -45,7 +45,7 @@ const ItemReceta = ({receta, setRecetas}) => {
 
     return (
         <tr>
-        <td className="text-center">{receta.id}</td>
+        <td className="text-center">{receta._id}</td>
         <td>{receta.nombreReceta}</td>
         <td className="text-end">{receta.cantidad}</td>
         <td className="text-center">
