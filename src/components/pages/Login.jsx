@@ -4,7 +4,7 @@ import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setUsuarioLogeado}) => {
   const {
     register,
     handleSubmit,
