@@ -4,7 +4,7 @@ Backend de ejercicio 5.
 
 ## Link del sitio
 
-[Blog de recetas](https://recetas-rollin.netlify.app/)
+[Blog de recetas](https://recetas-rolling.netlify.app/)
 
 ## Dependencies
 + bootstrap
